@@ -1,13 +1,7 @@
 import pandas as pd
 import numpy as np
 import random
-# from sklearn import neighbors, preprocessing 
-# from sklearn.model_selection import train_test_split
-# import matplotlib.pyplot as plt
-# from matplotlib import style
-# from math import sqrt
 from collections import Counter
-# style.use('fivethirtyeight')
 
 # k-nearest neighbors function
 def k_nearest_neighbors(dataset, predict, k= 5):
@@ -23,26 +17,41 @@ def k_nearest_neighbors(dataset, predict, k= 5):
 	
 	return leaning_result
 
-# Reads data into dataframe and applies headers to the data
-df = pd.read_csv('zoo.data', header= None)
-df.columns = ['Name', 'hair' , 'feathers', 'eggs', 'milk', 'aquatic',
-			'predator', 'toothed', 'backbone', 'breathes', 'venomous', 'fins', 'legs',
-			'legs#', 'tail', 'domestic', 'catsize', 'classification']
+def read_in_zoo_data():
+	# Reads data into dataframe and applies headers to the data
+	df = pd.read_csv('zoo.data', header= None)
+	df.columns = ['Name', 'hair' , 'feathers', 'eggs', 'milk', 'aquatic', 'airborne',
+				'predator', 'toothed', 'backbone', 'breathes', 'venomous', 'fins',
+				'legs#', 'tail', 'domestic', 'catsize', 'classification']
 
-d = [1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 4, 0, 0]
+	# Name(not a predictor of classification) 
+	# catsized(ambigous)
+	df.drop(['Name'], 1, inplace= True)
+	df.drop(['catsize'], 1, inplace= True)
+	return df
 
-# Name(not a predictor of classification) 
-# catsized(ambigous)
 
-df.drop(['Name'], 1, inplace= True)
-df.drop(['catsize'], 1, inplace= True)
 
+
+animal_traits = []
+
+print("What is the animals name?")
+animal_name = input()
+print("Does it have hair")
+print("1: YES 0: NO")
+animal_traits.append(int(input()))
+print(animal_traits)
+
+
+
+
+df = read_in_zoo_data()
 
 full_data = df.astype(float).values.tolist()
 random.shuffle(full_data)
 # print(full_data)
 
-test_size = 0.2
+test_size = 0.3
 
 train_set = {1: [], 2: [], 3: [], 4: []
 			,5: [], 6: [], 7: []}
@@ -63,16 +72,13 @@ total = 0
 
 for group in test_set:
 	for data in test_set[group]:
-		vote = k_nearest_neighbors(train_set, data, k=5)
+		vote = k_nearest_neighbors(train_set, data, k=3)
 		if (group == vote):
 			correct+=1
 		total+=1
 
 accuracy = correct/total
-
+print(type(full_data))
+print(type(test_set))
 print(accuracy)
-
-# for i in test_dataset:
-# 	test_set[i[-1]].append(i[:-1])
-
-# k_nearest_neighbors(dataset, d)
+print(k_nearest_neighbors(train_set, animal_traits))
