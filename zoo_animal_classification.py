@@ -5,8 +5,7 @@ from collections import Counter
 
 # incorperates a basic k-nearest neighbors
 # machine learning algorithm
-
-test_size = 0.3
+test_size = 0.2
 
 # k-nearest neighbors function
 def k_nearest_neighbors(dataset, predict, k= 5):
@@ -217,6 +216,7 @@ def new_animal():
 	else:
 		animal_traits.append(0)
 	
+	print('Answers Chosen:', animal_traits)
 	return animal_traits, animal_name
 
 def get_accuracy():
@@ -254,12 +254,12 @@ print("\n\nNote to user:\nThis is a toy [Machine Learning] program.")
 print("The data set used in this example is small,\nand the features are loosly related to the classification.")
 print("Additionally the data set contains only 3 amphibians which isn't ideal\n\n\n")
 
-animal_traits, animal_name = new_animal()
-# animal_traits = [0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0]
+# animal_traits, animal_name = new_animal()
+animal_traits = [1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 4, 1, 0, 1]
 
 accuracy, train_set = get_accuracy() 
 print('The system guesses with an accuracy of', accuracy)
-print('The animal you have described is a!')
+print('The animal you have described is a')
 
 
 result = k_nearest_neighbors(train_set, animal_traits)
