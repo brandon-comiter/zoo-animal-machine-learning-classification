@@ -33,15 +33,185 @@ def read_in_zoo_data():
 	return df
 
 def new_animal():
-	print("What is the animals name?")
+	animal_traits = []
+	animal_name = ''
+
+	
+	print("What is the animals species?")
 	animal_name = input()
-	print("Does it have hair")
-	print("1: YES 0: NO")
-	animal_traits.append(int(input()))
+
+	#1
+	print('Does it have hair?')
+	print('Type: yes or no!')
+	ans = input().lower()
+	while (ans is 'yes' or ans is 'no'):	
+		print('Invalid Answer\nType: Yes or NO.')
+		ans = input.lower()
+	if ans == 'yes':
+		animal_traits.append(1)
+	else:
+		animal_traits.append(0)
 	print(animal_traits)
 
-	return animal_traits, animal_name
+	#2
+	print('Does it have feathers?')
+	print('Type: yes or no!')
+	ans = input().lower()
+	while (ans is 'yes' or ans is 'no'):	
+		print('Invalid Answer\nType: Yes or NO.')
+		ans = input.lower()
+	if ans == 'yes':
+		animal_traits.append(1)
+	else:
+		animal_traits.append(0)
+	#3
+	print('Does ', animal_name,' lay eggs?')
+	print('Type: yes or no!')
+	ans = input().lower()
+	while (ans is 'yes' or ans is 'no'):	
+		print('Invalid Answer\nType: Yes or NO.')
+		ans = input.lower()
+	if ans == 'yes':
+		animal_traits.append(1)
+	else:
+		animal_traits.append(0)
+	#4
+	print('Does it produce milk for its offspring?')
+	print('Type: yes or no!')
+	ans = input().lower()
+	while (ans is 'yes' or ans is 'no'):	
+		print('Invalid Answer\nType: Yes or NO.')
+		ans = input.lower()
+	if ans == 'yes':
+		animal_traits.append(1)
+	else:
+		animal_traits.append(0)
+	#5
+	print('Is ', animal_name, ' airborne?')
+	print('Type: yes or no!')
+	ans = input().lower()
+	while (ans is 'yes' or ans is 'no'):	
+		print('Invalid Answer\nType: Yes or NO.')
+		ans = input.lower()
+	if ans == 'yes':
+		animal_traits.append(1)
+	else:
+		animal_traits.append(0)
+	print(animal_traits)
+	#6
+	print('Is the animal found in an aquatic environment?')
+	print('Type: yes or no!')
+	ans = input().lower()
+	while (ans is 'yes' or ans is 'no'):	
+		print('Invalid Answer\nType: Yes or NO.')
+		ans = input.lower()
+	if ans == 'yes':
+		animal_traits.append(1)
+	else:
+		animal_traits.append(0)
+	#7
+	print('Is the animal a predator?')
+	print('Type: yes or no!')
+	ans = input().lower()
+	while (ans is 'yes' or ans is 'no'):	
+		print('Invalid Answer\nType: Yes or NO.')
+		ans = input.lower()
+	if ans == 'yes':
+		animal_traits.append(1)
+		print('wat')
+	else:
+		animal_traits.append(0)
+	#8
+	print('Does it have teeth?')
+	print('Type: yes or no!')
+	ans = input().lower()
+	while (ans is 'yes' or ans is 'no'):	
+		print('Invalid Answer\nType: Yes or NO.')
+		ans = input.lower()
+	if ans == 'yes':
+		animal_traits.append(1)
+	else:
+		animal_traits.append(0)
+	#9
+	print('Does it have a backbone?')
+	print('Type: yes or no!')
+	ans = input().lower()
+	while (ans is 'yes' or ans is 'no'):	
+		print('Invalid Answer\nType: Yes or NO.')
+		ans = input.lower()
+	if ans == 'yes':
+		animal_traits.append(1)
+	else:
+		animal_traits.append(0)
+	#10
+	print('Is it venomous?')
+	print('Type: yes or no!')
+	ans = input().lower()
+	while (ans is 'yes' or ans is 'no'):	
+		print('Invalid Answer\nType: Yes or NO.')
+		ans = input.lower()
+	if ans == 'yes':
+		animal_traits.append(1)
+	else:
+		animal_traits.append(0)
+	print(animal_traits)
 
+	#11
+	print('Does it have fins?')
+	print('Type: yes or no!')
+	ans = input().lower()
+	while (ans is 'yes' or ans is 'no'):	
+		print('Invalid Answer\nType: Yes or NO.')
+		ans = input.lower()
+	if ans == 'yes':
+		animal_traits.append(1)
+	else:
+		animal_traits.append(0)
+	print(animal_traits)
+	#12
+	print('Does it breath oxygen?')
+	print('Type: yes or no!')
+	ans = input().lower()
+	while (ans is 'yes' or ans is 'no'):	
+		print('Invalid Answer\nType: Yes or NO.')
+		ans = input.lower()
+	if ans == 'yes':
+		animal_traits.append(1)
+	else:
+		animal_traits.append(0)
+	#13
+	print('How many legs does it have\nset of values: {0,2,4,5,6,8}?')
+	ans = int(input())	
+	while (ans % 2 == 1 or ans > 8):	
+		print('Invalid Answer\nType one of the numbers(listed below):\n{0,2,4,5,6,8}')
+		ans = int(input())
+	animal_traits.append(ans)
+	#14
+	print('Does it have a tail?')
+	print('Type: yes or no!')
+	ans = input().lower()
+	while (ans is 'yes' or ans is 'no'):	
+		print('Invalid Answer\nType: Yes or NO.')
+		ans = input.lower()
+	if ans == 'yes':
+		animal_traits.append(1)
+	else:
+		animal_traits.append(0)
+	#15
+	print('Does it have a domestic?')
+	print('Type: yes or no!')
+	ans = input().lower()
+	while (ans is 'yes' or ans is 'no'):	
+		print('Invalid Answer\nType: Yes or NO.')
+		ans = input.lower()
+	if ans == 'yes':
+		animal_traits.append(1)
+	else:
+		animal_traits.append(0)
+
+	
+	print(animal_traits)
+	return animal_traits, animal_name
 
 def get_accuracy():
 	df = read_in_zoo_data()
@@ -74,13 +244,8 @@ def get_accuracy():
 	accuracy = correct/total
 	return accuracy, train_set
 	
-
 # animal_traits, animal_name = new_animal()
-
-animal_traits = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-
-
-
+# animal_traits = [0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0]
 
 accuracy, train_set = get_accuracy() 
 print('The system guesses with an accuracy of ', accuracy, ' that \nthe animal you have described is!')
