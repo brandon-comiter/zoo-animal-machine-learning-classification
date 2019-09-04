@@ -3,6 +3,8 @@ import numpy as np
 import random
 from collections import Counter
 
+test_size = 0.3
+
 # k-nearest neighbors function
 def k_nearest_neighbors(dataset, predict, k= 5):
 	distances = []
@@ -30,55 +32,56 @@ def read_in_zoo_data():
 	df.drop(['catsize'], 1, inplace= True)
 	return df
 
+def new_animal():
+	print("What is the animals name?")
+	animal_name = input()
+	print("Does it have hair")
+	print("1: YES 0: NO")
+	animal_traits.append(int(input()))
+	print(animal_traits)
+
+	return animal_traits, animal_name
 
 
+def get_accuracy():
+	df = read_in_zoo_data()
+	full_data = df.astype(int).values.tolist()
+	random.shuffle(full_data)
 
-animal_traits = []
-
-print("What is the animals name?")
-animal_name = input()
-print("Does it have hair")
-print("1: YES 0: NO")
-animal_traits.append(int(input()))
-print(animal_traits)
-
-
-
-
-df = read_in_zoo_data()
-
-full_data = df.astype(float).values.tolist()
-random.shuffle(full_data)
-# print(full_data)
-
-test_size = 0.3
-
-train_set = {1: [], 2: [], 3: [], 4: []
+	train_set = {1: [], 2: [], 3: [], 4: []
 			,5: [], 6: [], 7: []}
-test_set = {1: [], 2: [], 3: [], 4: []
-		   ,5: [], 6: [], 7: []}
+	test_set = {1: [], 2: [], 3: [], 4: []
+			,5: [], 6: [], 7: []}
 
-train_data = full_data[ :-int(test_size * len(full_data))]
-test_data = full_data[-int(test_size * len(full_data)): ]
+	train_data = full_data[ :-int(test_size * len(full_data))]
+	test_data = full_data[-int(test_size * len(full_data)):]
+
+	for i in train_data:
+		train_set[i[-1]].append(i[:-1])
+	for i in test_data:
+		test_set[i[-1]].append(i[:-1])
+
+	correct = 0
+	total = 0
+
+	for group in test_set:
+		for data in test_set[group]:
+			vote = k_nearest_neighbors(train_set, data, k=3)
+			if (group == vote):
+				correct+=1
+			total+=1
+
+	accuracy = correct/total
+	return accuracy, train_set
+	
+
+# animal_traits, animal_name = new_animal()
+
+animal_traits = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
 
-for i in train_data:
-	train_set[i[-1]].append(i[:-1])
-for i in test_data:
-	test_set[i[-1]].append(i[:-1])
 
-correct = 0
-total = 0
 
-for group in test_set:
-	for data in test_set[group]:
-		vote = k_nearest_neighbors(train_set, data, k=3)
-		if (group == vote):
-			correct+=1
-		total+=1
-
-accuracy = correct/total
-print(type(full_data))
-print(type(test_set))
-print(accuracy)
-print(k_nearest_neighbors(train_set, animal_traits))
+accuracy, train_set = get_accuracy() 
+print('The system guesses with an accuracy of ', accuracy, ' that \nthe animal you have described is!')
+print('A type (',k_nearest_neighbors(train_set, animal_traits), ')')
