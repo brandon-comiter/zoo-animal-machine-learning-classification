@@ -14,11 +14,11 @@ def k_nearest_neighbors(dataset, predict, k= 5):
 		for feature in dataset[group]:
 			euclidean_distance = np.linalg.norm(np.array(feature) - np.array(predict))
 			distances.append([euclidean_distance, group])
-			
+
 
 	leanings = [i[1] for i in sorted(distances)[:k]]
 	leaning_result = Counter(leanings).most_common(1)[0][0]
-	
+
 	return leaning_result
 
 def read_in_zoo_data():
@@ -28,7 +28,7 @@ def read_in_zoo_data():
 				'predator', 'toothed', 'backbone', 'breathes', 'venomous', 'fins',
 				'legs#', 'tail', 'domestic', 'catsize', 'classification']
 
-	# Name(not a predictor of classification) 
+	# Name(not a predictor of classification)
 	# catsized(ambigous)
 	df.drop(['Name'], 1, inplace= True)
 	# df.drop(['catsize'], 1, inplace= True)
@@ -38,16 +38,17 @@ def new_animal():
 	animal_traits = []
 	animal_name = ''
 
+
 	print("What is the name of the species?")
 	animal_name = input().lower()
 
-	#1
+	#Questions  (1) 
 	print('Do they have hair?')
 	print('Type: yes or no!')
 	ans = input().lower()
-	while (ans is 'yes' or ans is 'no'):	
+	while (ans is 'yes' or ans is 'no'):
 		print('Invalid Answer\nType: Yes or No.')
-		ans = input.lower()
+		ans = input().lower()
 	if ans == 'yes':
 		animal_traits.append(1)
 	else:
@@ -57,9 +58,9 @@ def new_animal():
 	print('Do they have feathers?')
 	print('Type: yes or no!')
 	ans = input().lower()
-	while (ans is 'yes' or ans is 'no'):	
+	while (ans is 'yes' or ans is 'no'):
 		print('Invalid Answer\nType: Yes or No.')
-		ans = input.lower()
+		ans = input().lower()
 	if ans == 'yes':
 		animal_traits.append(1)
 	else:
@@ -68,9 +69,9 @@ def new_animal():
 	print('Does a', animal_name,'lay eggs?')
 	print('Type: yes or no!')
 	ans = input().lower()
-	while (ans is 'yes' or ans is 'no'):	
+	while (ans is 'yes' or ans is 'no'):
 		print('Invalid Answer\nType: Yes or No.')
-		ans = input.lower()
+		ans = input().lower()
 	if ans == 'yes':
 		animal_traits.append(1)
 	else:
@@ -79,9 +80,9 @@ def new_animal():
 	print('Do they produce milk for their offspring?')
 	print('Type: yes or no!')
 	ans = input().lower()
-	while (ans is 'yes' or ans is 'no'):	
+	while (ans is 'yes' or ans is 'no'):
 		print('Invalid Answer\nType: Yes or No.')
-		ans = input.lower()
+		ans = input().lower()
 	if ans == 'yes':
 		animal_traits.append(1)
 	else:
@@ -90,9 +91,9 @@ def new_animal():
 	print('Is a', animal_name, 'able to fly?')
 	print('Type: yes or no!')
 	ans = input().lower()
-	while (ans is 'yes' or ans is 'no'):	
+	while (ans is 'yes' or ans is 'no'):
 		print('Invalid Answer\nType: Yes or No.')
-		ans = input.lower()
+		ans = input().lower()
 	if ans == 'yes':
 		animal_traits.append(1)
 	else:
@@ -101,9 +102,9 @@ def new_animal():
 	print('Is this species found in an aquatic environment?')
 	print('Type: yes or no!')
 	ans = input().lower()
-	while (ans is 'yes' or ans is 'no'):	
+	while (ans is 'yes' or ans is 'no'):
 		print('Invalid Answer\nType: Yes or No.')
-		ans = input.lower()
+		ans = input().lower()
 	if ans == 'yes':
 		animal_traits.append(1)
 	else:
@@ -112,9 +113,9 @@ def new_animal():
 	print('Is a', animal_name,'a predator?')
 	print('Type: yes or no!')
 	ans = input().lower()
-	while (ans is 'yes' or ans is 'no'):	
+	while (ans is 'yes' or ans is 'no'):
 		print('Invalid Answer\nType: Yes or No.')
-		ans = input.lower()
+		ans = input().lower()
 	if ans == 'yes':
 		animal_traits.append(1)
 		print('wat')
@@ -124,9 +125,9 @@ def new_animal():
 	print('Do they have teeth?')
 	print('Type: yes or no!')
 	ans = input().lower()
-	while (ans is 'yes' or ans is 'no'):	
+	while (ans is 'yes' or ans is 'no'):
 		print('Invalid Answer\nType: Yes or No.')
-		ans = input.lower()
+		ans = input().lower()
 	if ans == 'yes':
 		animal_traits.append(1)
 	else:
@@ -135,9 +136,9 @@ def new_animal():
 	print('Do they have backbones?')
 	print('Type: yes or no!')
 	ans = input().lower()
-	while (ans is 'yes' or ans is 'no'):	
+	while (ans is 'yes' or ans is 'no'):
 		print('Invalid Answer\nType: Yes or NO.')
-		ans = input.lower()
+		ans = input().lower()
 	if ans == 'yes':
 		animal_traits.append(1)
 	else:
@@ -146,9 +147,9 @@ def new_animal():
 	print('Is a', animal_name, 'venomous?')
 	print('Type: yes or no!')
 	ans = input().lower()
-	while (ans is 'yes' or ans is 'no'):	
+	while (ans is 'yes' or ans is 'no'):
 		print('Invalid Answer\nType: Yes or NO.')
-		ans = input.lower()
+		ans = input().lower()
 	if ans == 'yes':
 		animal_traits.append(1)
 	else:
@@ -157,9 +158,9 @@ def new_animal():
 	print('Do they have fins?')
 	print('Type: yes or no!')
 	ans = input().lower()
-	while (ans is 'yes' or ans is 'no'):	
+	while (ans is 'yes' or ans is 'no'):
 		print('Invalid Answer\nType: Yes or NO.')
-		ans = input.lower()
+		ans = input().lower()
 	if ans == 'yes':
 		animal_traits.append(1)
 	else:
@@ -168,17 +169,17 @@ def new_animal():
 	print('Does a', animal_name, 'breath oxygen?')
 	print('Type: yes or no!')
 	ans = input().lower()
-	while (ans is 'yes' or ans is 'no'):	
+	while (ans is 'yes' or ans is 'no'):
 		print('Invalid Answer\nType: Yes or NO.')
-		ans = input.lower()
+		ans = input().lower()
 	if ans == 'yes':
 		animal_traits.append(1)
 	else:
 		animal_traits.append(0)
 	#13
 	print('How many legs does a', animal_name, 'have\nset of values: {0,2,4,5,6,8}?')
-	ans = int(input())	
-	while (ans % 2 == 1 or ans > 8):	
+	ans = int(input())
+	while (ans % 2 == 1 or ans > 8):
 		print('Invalid Answer\nType one of the numbers(listed below):\n{0,2,4,5,6,8}')
 		ans = int(input())
 	animal_traits.append(ans)
@@ -186,9 +187,9 @@ def new_animal():
 	print('Do they have tails?')
 	print('Type: yes or no!')
 	ans = input().lower()
-	while (ans is 'yes' or ans is 'no'):	
+	while (ans is 'yes' or ans is 'no'):
 		print('Invalid Answer\nType: Yes or NO.')
-		ans = input.lower()
+		ans = input().lower()
 	if ans == 'yes':
 		animal_traits.append(1)
 	else:
@@ -197,9 +198,9 @@ def new_animal():
 	print('Is this animal domesticated?')
 	print('Type: yes or no!')
 	ans = input().lower()
-	while (ans is 'yes' or ans is 'no'):	
+	while (ans is 'yes' or ans is 'no'):
 		print('Invalid Answer\nType: Yes or NO.')
-		ans = input.lower()
+		ans = input().lower()
 	if ans == 'yes':
 		animal_traits.append(1)
 	else:
@@ -208,14 +209,14 @@ def new_animal():
 	print('Is a', animal_name,'just as big or bigger than a cat?')
 	print('Type: yes or no!')
 	ans = input().lower()
-	while (ans is 'yes' or ans is 'no'):	
+	while (ans is 'yes' or ans is 'no'):
 		print('Invalid Answer\nType: Yes or NO.')
-		ans = input.lower()
+		ans = input().lower()
 	if ans == 'yes':
 		animal_traits.append(1)
 	else:
 		animal_traits.append(0)
-	
+
 	print('Answers Chosen:', animal_traits)
 	return animal_traits, animal_name
 
@@ -249,15 +250,15 @@ def get_accuracy():
 
 	accuracy = correct/total
 	return accuracy, train_set
-	
+
 print("\n\nNote to user:\nThis is a toy [Machine Learning] program.")
 print("The data set used in this example is small,\nand the features are loosly related to the classification.")
 print("Additionally the data set contains only 3 amphibians which isn't ideal\n\n\n")
 
-# animal_traits, animal_name = new_animal()
-animal_traits = [1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 4, 1, 0, 1]
+animal_traits, animal_name = new_animal()
+# animal_traits = [1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 4, 1, 0, 1]
 
-accuracy, train_set = get_accuracy() 
+accuracy, train_set = get_accuracy()
 print('The system guesses with an accuracy of', accuracy)
 print('The animal you have described is a')
 
@@ -278,3 +279,4 @@ elif (result == 6):
 	print('Insect or Arachnid: (Classification #', result,')')
 elif (result == 7):
 	print('Crustation: (Classification #', result,')')
+
